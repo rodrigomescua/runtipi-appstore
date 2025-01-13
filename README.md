@@ -20,7 +20,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (268)
+## Apps available (270)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -230,6 +230,8 @@ If you want to see new apps on Tipi you can either:
 | [qDirStat](https://github.com/linuxserver/docker-qdirstat)                   | A graphical disk usage analyzer                                                                                                                                     | 7125  |
 | [Radarr](https://github.com/Radarr/Radarr)                                   | Movie collection manager for Usenet and BitTorrent users.                                                                                                           | 8088  |
 | [Rallly](https://github.com/lukevella/rallly)                                | Scheduling and collaboration tool                                                                                                                                   | 8208  |
+| [Razor Miniflux](https://github.com/romesc/RazorMinifluxDocker)              | Razor Miniflux                                                                                                                                                      | 8822  |
+| [Razor Price History](https://github.com/romesc/RazorPriceHistory)           | Razor Price History                                                                                                                                                 | 8820  |
 | [Readarr](https://github.com/Readarr/Readarr)                                | Book Manager and Automation (Sonarr for Ebooks)                                                                                                                     | 8112  |
 | [Recyclarr](https://github.com/recyclarr/recyclarr)                          | Sync TRaSH Guides.                                                                                                                                                  | 1111  |
 | [Resilio](https://github.com/bt-sync)                                        | Fast, reliable, and simple file sync and share solution.                                                                                                            | 8113  |
