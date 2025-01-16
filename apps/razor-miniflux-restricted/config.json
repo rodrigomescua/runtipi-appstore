@@ -1,0 +1,62 @@
+{
+  "$schema": "../schema.json",
+  "name": "Razor Miniflux - Restricted",
+  "id": "razor-miniflux-restricted",
+  "available": true,
+  "short_desc": "Razor Miniflux Restricted",
+  "author": "Rodrigo Mescua",
+  "port": 8823,
+  "categories": ["featured"],
+  "description": "Aplicativo para gerenciar feed RSS hospedado no Miniflux.",
+  "tipi_version": 1,
+  "version": "1737039376",
+  "source": "https://github.com/romesc/RazorMinifluxDocker",
+  "exposable": true,
+  "supported_architectures": ["amd64"],
+  "created_at": 1731806734301,
+  "updated_at": 1731806734301,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Miniflux Url",
+      "max": 100,
+      "min": 3,
+      "required": true,
+      "env_variable": "MINIFLUX_URL"
+    },
+    {
+      "type": "password",
+      "label": "Minflux Token",
+      "max": 120,
+      "min": 10,
+      "required": true,
+      "env_variable": "MINIFLUX_TOKEN"
+    },
+    {
+      "type": "password",
+      "label": "Minflux Token Top",
+      "max": 120,
+      "min": 10,
+      "required": false,
+      "env_variable": "MINIFLUX_TOKEN_TOP"
+    },
+    {
+      "type": "text",
+      "label": "Page Size",
+      "required": false,
+      "default": "10",
+      "max": 2,
+      "min": 1,
+      "env_variable": "PAGE_SIZE"
+    },
+    {
+      "type": "text",
+      "label": "Flag",
+      "required": false,
+      "default": "false",
+      "max": 5,
+      "min": 1,
+      "env_variable": "IS_TOP"
+    }
+  ]
+}
