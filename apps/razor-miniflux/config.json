@@ -69,7 +69,7 @@
     },
     {
       "type": "text",
-      "label": "Flag",
+      "label": "Mark Starred as Read",
       "required": false,
       "default": "true",
       "max": 5,
