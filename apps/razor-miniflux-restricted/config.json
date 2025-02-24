@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Razor Miniflux - Restricted",
   "id": "razor-miniflux-restricted",
   "available": true,
@@ -8,13 +8,14 @@
   "port": 8823,
   "categories": ["featured"],
   "description": "Aplicativo para gerenciar feed RSS hospedado no Miniflux.",
-  "tipi_version": 32,
+  "tipi_version": 33,
   "version": "1740285078",
   "source": "https://github.com/romesc/RazorMinifluxDocker",
   "exposable": true,
+  "dynamic_config": true,
   "supported_architectures": ["amd64"],
   "created_at": 1731806734301,
-  "updated_at": 1731806735032,
+  "updated_at": 1731806735033,
   "form_fields": [
     {
       "type": "text",
