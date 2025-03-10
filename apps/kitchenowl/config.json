@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "KitchenOwl",
   "id": "kitchenowl",
   "available": true,
@@ -8,13 +8,13 @@
   "port": 8828,
   "categories": [ "featured" ],
   "description": "A smart grocery list and recipe manager.",
-  "tipi_version": 2,
-  "version": "v0.6.10",
+  "tipi_version": 3,
+  "version": "v0.6.11",
   "source": "https://github.com/tombursch/kitchenowl",
   "exposable": true,
   "supported_architectures": [ "amd64" ],
   "created_at": 1731806734301,
-  "updated_at": 1731806734302,
+  "updated_at": 1731806734303,
   "form_fields": [
     {
       "type": "text",
