@@ -8,38 +8,40 @@
   "port": 8823,
   "categories": ["featured"],
   "description": "Aplicativo para gerenciar feed RSS hospedado no Miniflux.",
-  "tipi_version": 97,
-  "version": "1743187728",
+  "tipi_version": 98,
+  "version": "1743436017",
   "source": "https://github.com/romesc/RazorMinifluxDocker",
   "exposable": true,
   "dynamic_config": true,
   "supported_architectures": ["amd64"],
   "created_at": 1731806734301,
-  "updated_at": 1731806735097,
+  "updated_at": 1731806735098,
   "form_fields": [
     {
       "type": "text",
-      "label": "Miniflux Url",
-      "max": 100,
+      "label": "FreshRSS Pg Connection String",
+      "max": 300,
       "min": 3,
       "required": true,
-      "env_variable": "MINIFLUX_URL"
+      "env_variable": "FRESHRSS_CONNECTIONSTRING"
     },
     {
       "type": "password",
       "label": "Minflux Token",
       "max": 120,
       "min": 10,
+      "default": "rssrodrigo",
       "required": true,
-      "env_variable": "MINIFLUX_TOKEN"
+      "env_variable": "FRESHRSS_TABLE_PREFIX"
     },
     {
       "type": "password",
       "label": "Minflux Token Top",
       "max": 120,
       "min": 10,
+      "default": "rssmurkmesc",
       "required": false,
-      "env_variable": "MINIFLUX_TOKEN_TOP"
+      "env_variable": "FRESHRSS_TOP_TABLE_PREFIX"
     },
     {
       "type": "text",
@@ -52,12 +54,12 @@
     },
     {
       "type": "text",
-      "label": "Miniflux Page Size",
+      "label": "Server Page Size",
       "required": false,
-      "default": "1000",
+      "default": "500",
       "max": 5,
       "min": 1,
-      "env_variable": "MINIFLUX_PAGE_SIZE"
+      "env_variable": "SERVER_PAGE_SIZE"
     },
     {
       "type": "text",

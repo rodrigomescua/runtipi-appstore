@@ -3,15 +3,15 @@
   "services": [
     {
       "name": "razor-miniflux",
-      "image": "romesc/razorminiflux:1743187728",
+      "image": "romesc/razorminiflux:1743436017",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
-        "MINIFLUX_URL": "${MINIFLUX_URL}",
-        "MINIFLUX_TOKEN": "${MINIFLUX_TOKEN}",
-        "MINIFLUX_TOKEN_TOP": "${MINIFLUX_TOKEN_TOP}",
+        "FRESHRSS_CONNECTIONSTRING": "${FRESHRSS_CONNECTIONSTRING}",
+        "FRESHRSS_TABLE_PREFIX": "${FRESHRSS_TABLE_PREFIX}",
+        "FRESHRSS_TOP_TABLE_PREFIX": "${FRESHRSS_TOP_TABLE_PREFIX}",
         "PAGE_SIZE": "${PAGE_SIZE}",
-        "MINIFLUX_PAGE_SIZE": "${MINIFLUX_PAGE_SIZE}",
+        "SERVER_PAGE_SIZE": "${SERVER_PAGE_SIZE}",
         "IS_TOP": "${IS_TOP}",
         "MARK_STARRED_READ": "${MARK_STARRED_READ}",
         "TZ": "${TZ}"
