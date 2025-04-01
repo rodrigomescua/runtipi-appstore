@@ -8,6 +8,7 @@
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
+        "CRON_MIN": "13,43",
         "TZ": "${TZ}"
       },
       "volumes": [
