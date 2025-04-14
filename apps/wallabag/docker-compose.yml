@@ -6,7 +6,7 @@ services:
     restart: unless-stopped # Do not change this
     environment:
       - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
-      - SYMFONY__ENV__DOMAIN_NAME=${APP_DOMAIN}
+      - SYMFONY__ENV__DOMAIN_NAME=https://${APP_DOMAIN}
       - SYMFONY__ENV__FOSUSER_REGISTRATION=${ALLOW_USER_REGISTRATION}
     volumes:
       - ${APP_DATA_DIR}/data/data:/var/www/wallabag/data # Always start the path with ${APP_DATA_DIR}/data/. This will put all data inside app-data/my-app/data
