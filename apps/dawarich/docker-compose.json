@@ -1,0 +1,124 @@
+{
+  "services": [
+    {
+      "name": "dawarich",
+      "image": "freikin/dawarich:0.25.8",
+      "internalPort": 3000,
+      "isMain": true,
+      "dependsOn": ["dawarich-db", "dawarich-redis"],
+      "entrypoint": "web-entrypoint.sh",
+      "command": ["bin/rails", "server", "-p", "3000", "-b", "::"],
+      "tty": true,
+      "stdinOpen": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/public",
+          "containerPath": "/var/app/public"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/imports/watched",
+          "containerPath": "/var/app/tmp/imports/watched"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/var/app/storage"
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}",
+        "RAILS_ENV": "development",
+        "REDIS_URL": "redis://dawarich-redis:6379/0",
+        "DATABASE_HOST": "dawarich-db",
+        "DATABASE_USERNAME": "postgres",
+        "DATABASE_PASSWORD": "password",
+        "DATABASE_NAME": "dawarich_development",
+        "MIN_MINUTES_SPENT_IN_CITY": "20",
+        "APPLICATION_HOSTS": "localhost",
+        "TIME_ZONE": "${TZ}",
+        "APPLICATION_PROTOCOL": "http",
+        "DISTANCE_UNIT": "km",
+        "PROMETHEUS_EXPORTER_ENABLED": "false",
+        "PROMETHEUS_EXPORTER_HOST": "0.0.0.0",
+        "PROMETHEUS_EXPORTER_PORT": "9394",
+        "SELF_HOSTED": "true"
+      }
+    },
+    {
+      "name": "dawarich-db",
+      "image": "postgis/postgis:14-3.5-alpine",
+      "isMain": false,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/shared",
+          "containerPath": "/var/shared"
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}",
+        "POSTGRES_USERNAME": "postgres",
+        "POSTGRES_PASSWORD": "password"
+      }
+    },
+    {
+      "name": "dawarich-redis",
+      "image": "redis:7.0-alpine",
+      "isMain": false,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/shared",
+          "containerPath": "/data"
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}"
+      }
+    },
+    {
+      "name": "dawarich-sidekiq",
+      "image": "freikin/dawarich:0.25.8",
+      "isMain": false,
+      "dependsOn": ["dawarich", "dawarich-db", "dawarich-redis"],
+      "entrypoint": "sidekiq-entrypoint.sh",
+      "command": ["sidekiq"],
+      "tty": true,
+      "stdinOpen": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/public",
+          "containerPath": "/var/app/public"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/imports/watched",
+          "containerPath": "/var/app/tmp/imports/watched"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/var/app/storage"
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}",
+        "RAILS_ENV": "development",
+        "REDIS_URL": "redis://dawarich-redis:6379/0",
+        "DATABASE_HOST": "dawarich-db",
+        "DATABASE_USERNAME": "postgres",
+        "DATABASE_PASSWORD": "password",
+        "DATABASE_NAME": "dawarich_development",
+        "MIN_MINUTES_SPENT_IN_CITY": "20",
+        "APPLICATION_HOSTS": "localhost",
+        "TIME_ZONE": "${TZ}",
+        "APPLICATION_PROTOCOL": "http",
+        "DISTANCE_UNIT": "km",
+        "PROMETHEUS_EXPORTER_ENABLED": "false",
+        "PROMETHEUS_EXPORTER_HOST": "0.0.0.0",
+        "PROMETHEUS_EXPORTER_PORT": "9394",
+        "SELF_HOSTED": "true"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}
