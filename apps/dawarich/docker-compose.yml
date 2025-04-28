@@ -17,7 +17,7 @@ services:
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=dawarich_development
       - MIN_MINUTES_SPENT_IN_CITY=20
-      - APPLICATION_HOSTS=localhost
+      - APPLICATION_HOSTS=localhost,dawarich.murkmesc.top
       - TIME_ZONE=${TZ}
       - APPLICATION_PROTOCOL=http
       - DISTANCE_UNIT=km
@@ -108,7 +108,7 @@ services:
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=dawarich_development
       - MIN_MINUTES_SPENT_IN_CITY=20
-      - APPLICATION_HOSTS=localhost
+      - APPLICATION_HOSTS=localhost,dawarich.murkmesc.top
       - TIME_ZONE=${TZ}
       - APPLICATION_PROTOCOL=http
       - DISTANCE_UNIT=km
