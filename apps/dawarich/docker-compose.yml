@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   dawarich:
-    image: freikin/dawarich:0.25.8
+    image: freikin/dawarich:0.25.9
     container_name: dawarich
     entrypoint: web-entrypoint.sh
     command:
@@ -93,7 +93,7 @@ services:
     labels:
       runtipi.managed: true
   dawarich-sidekiq:
-    image: freikin/dawarich:0.25.8
+    image: freikin/dawarich:0.25.9
     container_name: dawarich-sidekiq
     entrypoint: sidekiq-entrypoint.sh
     command: ["sidekiq"]
