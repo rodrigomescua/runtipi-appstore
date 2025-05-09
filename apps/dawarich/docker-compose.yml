@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   dawarich:
-    image: freikin/dawarich:0.25.9
+    image: freikin/dawarich:0.26.0
     container_name: dawarich
     entrypoint: web-entrypoint.sh
     command:
@@ -16,7 +16,7 @@ services:
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=dawarich_development
-      - MIN_MINUTES_SPENT_IN_CITY=20
+      - MIN_MINUTES_SPENT_IN_CITY=10
       - APPLICATION_HOSTS=localhost,dawarich.murkmesc.top
       - TIME_ZONE=${TZ}
       - APPLICATION_PROTOCOL=http
@@ -66,7 +66,8 @@ services:
       traefik.http.routers.dawarich-local.tls: true
       runtipi.managed: true
   dawarich-db:
-    image: postgis/postgis:14-3.5-alpine
+    image: postgis/postgis:17-3.5-alpine
+    shm_size: 1G
     container_name: dawarich-db
     environment:
       - TZ=${TZ}
@@ -93,7 +94,7 @@ services:
     labels:
       runtipi.managed: true
   dawarich-sidekiq:
-    image: freikin/dawarich:0.25.9
+    image: freikin/dawarich:0.26.0
     container_name: dawarich-sidekiq
     entrypoint: sidekiq-entrypoint.sh
     command: ["sidekiq"]
@@ -107,8 +108,8 @@ services:
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=dawarich_development
-      - MIN_MINUTES_SPENT_IN_CITY=20
       - APPLICATION_HOSTS=localhost,dawarich.murkmesc.top
+      - BACKGROUND_PROCESSING_CONCURRENCY=10
       - TIME_ZONE=${TZ}
       - APPLICATION_PROTOCOL=http
       - DISTANCE_UNIT=km

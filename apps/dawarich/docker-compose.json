@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dawarich",
-      "image": "freikin/dawarich:0.25.9",
+      "image": "freikin/dawarich:0.26.0",
       "internalPort": 3000,
       "isMain": true,
       "dependsOn": ["dawarich-db", "dawarich-redis"],
@@ -32,7 +32,7 @@
         "DATABASE_USERNAME": "postgres",
         "DATABASE_PASSWORD": "password",
         "DATABASE_NAME": "dawarich_development",
-        "MIN_MINUTES_SPENT_IN_CITY": "20",
+        "MIN_MINUTES_SPENT_IN_CITY": "10",
         "APPLICATION_HOSTS": "localhost,dawarich.murkmesc.top",
         "TIME_ZONE": "${TZ}",
         "APPLICATION_PROTOCOL": "http",
@@ -45,7 +45,7 @@
     },
     {
       "name": "dawarich-db",
-      "image": "postgis/postgis:14-3.5-alpine",
+      "image": "postgis/postgis:17-3.5-alpine",
       "isMain": false,
       "volumes": [
         {
@@ -79,7 +79,7 @@
     },
     {
       "name": "dawarich-sidekiq",
-      "image": "freikin/dawarich:0.25.9",
+      "image": "freikin/dawarich:0.26.0",
       "isMain": false,
       "dependsOn": ["dawarich", "dawarich-db", "dawarich-redis"],
       "entrypoint": "sidekiq-entrypoint.sh",
@@ -108,7 +108,7 @@
         "DATABASE_USERNAME": "postgres",
         "DATABASE_PASSWORD": "password",
         "DATABASE_NAME": "dawarich_development",
-        "MIN_MINUTES_SPENT_IN_CITY": "20",
+        "BACKGROUND_PROCESSING_CONCURRENCY": 10,
         "APPLICATION_HOSTS": "localhost,dawarich.murkmesc.top",
         "TIME_ZONE": "${TZ}",
         "APPLICATION_PROTOCOL": "http",
