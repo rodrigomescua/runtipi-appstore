@@ -2,7 +2,7 @@ version: "3.9"
 services:
   kitchenowl: # Should be exact same name as "id" field in config.json
     container_name: kitchenowl # Should be exact same name as "id" field in config.json
-    image: tombursch/kitchenowl:v0.6.11 # Try to avoid "latest" tag. As it may break configs in the future.
+    image: tombursch/kitchenowl:v0.6.15 # Try to avoid "latest" tag. As it may break configs in the future.
     restart: unless-stopped # Do not change this
     environment:
       - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs

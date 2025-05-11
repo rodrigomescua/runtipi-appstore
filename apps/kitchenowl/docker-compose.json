@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "kitchenowl",
-      "image": "tombursch/kitchenowl:v0.6.11",
+      "image": "tombursch/kitchenowl:v0.6.15",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
