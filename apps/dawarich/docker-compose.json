@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dawarich",
-      "image": "freikin/dawarich:0.26.6",
+      "image": "freikin/dawarich:0.26.7",
       "internalPort": 3000,
       "isMain": true,
       "dependsOn": ["dawarich-db", "dawarich-redis"],
@@ -79,7 +79,7 @@
     },
     {
       "name": "dawarich-sidekiq",
-      "image": "freikin/dawarich:0.26.6",
+      "image": "freikin/dawarich:0.26.7",
       "isMain": false,
       "dependsOn": ["dawarich", "dawarich-db", "dawarich-redis"],
       "entrypoint": "sidekiq-entrypoint.sh",
